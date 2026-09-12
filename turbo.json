@@ -6,6 +6,18 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
+    "ideons-marketplace#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "ideons-web#build": {
+      "dependsOn": ["^build", "ideons-marketplace#build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "ideons-job-hunter#build": {
+      "dependsOn": ["^build", "ideons-web#build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
     "typecheck": {
       "dependsOn": ["^build"]
     },
