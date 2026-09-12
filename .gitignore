@@ -2,6 +2,23 @@
 .turbo/
 **/.turbo/
 
+# Nested legacy git repos preserved on disk (history only)
+.nested-git/
+**/.nested-git/
+
+# TypeScript incremental
+*.tsbuildinfo
+
+# Agent tooling clutter
+.agents/
+**/.agents/
+.claude/
+**/.claude/
+.windsurf/
+**/.windsurf/
+skills-lock.json
+**/skills-lock.json
+
 # Dependencies
 node_modules/
 
