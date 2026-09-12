@@ -24,7 +24,6 @@
     "better-auth": "^1.7.4"
   },
   "peerDependencies": {
-    "next": ">=16",
     "react": ">=19"
   },
   "devDependencies": {
