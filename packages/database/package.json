@@ -14,9 +14,9 @@
   },
   "files": ["dist"],
   "scripts": {
+    "generate": "npm run db:generate --prefix ../..",
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "generate": "npm run db:generate --prefix ../..",
     "studio": "npm run db:studio --prefix ../.."
   },
   "dependencies": {
