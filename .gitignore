@@ -19,6 +19,14 @@
 skills-lock.json
 **/skills-lock.json
 
+# Legacy standalone apps (preserved locally, outside monorepo deploy)
+apps/ebook-platform/
+apps/ingetic-ai/
+apps/job-hunter-legacy/
+apps/portfolio/
+resources/hello-resources/
+services/job-hunter-server/
+
 # Dependencies
 node_modules/
 
