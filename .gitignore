@@ -17,3 +17,24 @@ Thumbs.db
 
 # Keep nested git history (legacy projects) out of the unified repo index
 **/.git/
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Turborepo
+.turbo/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
