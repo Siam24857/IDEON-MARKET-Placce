@@ -1,0 +1,1700 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace";
+/**
+ * Model FreelancerProfile
+ *
+ */
+export type FreelancerProfileModel = runtime.Types.Result.DefaultSelection<Prisma.$FreelancerProfilePayload>;
+export type AggregateFreelancerProfile = {
+    _count: FreelancerProfileCountAggregateOutputType | null;
+    _avg: FreelancerProfileAvgAggregateOutputType | null;
+    _sum: FreelancerProfileSumAggregateOutputType | null;
+    _min: FreelancerProfileMinAggregateOutputType | null;
+    _max: FreelancerProfileMaxAggregateOutputType | null;
+};
+export type FreelancerProfileAvgAggregateOutputType = {
+    responseTime: number | null;
+    responseRate: number | null;
+    onTimeDelivery: number | null;
+    explanationRate: number | null;
+    completedOrders: number | null;
+    successfulOrders: number | null;
+    ratingValue: number | null;
+    reviewCount: number | null;
+};
+export type FreelancerProfileSumAggregateOutputType = {
+    responseTime: number | null;
+    responseRate: number | null;
+    onTimeDelivery: number | null;
+    explanationRate: number | null;
+    completedOrders: number | null;
+    successfulOrders: number | null;
+    ratingValue: number | null;
+    reviewCount: number | null;
+};
+export type FreelancerProfileMinAggregateOutputType = {
+    id: string | null;
+    userId: string | null;
+    title: string | null;
+    about: string | null;
+    level: string | null;
+    responseTime: number | null;
+    responseRate: number | null;
+    onTimeDelivery: number | null;
+    explanationRate: number | null;
+    completedOrders: number | null;
+    successfulOrders: number | null;
+    ratingValue: number | null;
+    reviewCount: number | null;
+    status: string | null;
+    verified: boolean | null;
+    submittedAt: Date | null;
+    approvedAt: Date | null;
+    updatedAt: Date | null;
+};
+export type FreelancerProfileMaxAggregateOutputType = {
+    id: string | null;
+    userId: string | null;
+    title: string | null;
+    about: string | null;
+    level: string | null;
+    responseTime: number | null;
+    responseRate: number | null;
+    onTimeDelivery: number | null;
+    explanationRate: number | null;
+    completedOrders: number | null;
+    successfulOrders: number | null;
+    ratingValue: number | null;
+    reviewCount: number | null;
+    status: string | null;
+    verified: boolean | null;
+    submittedAt: Date | null;
+    approvedAt: Date | null;
+    updatedAt: Date | null;
+};
+export type FreelancerProfileCountAggregateOutputType = {
+    id: number;
+    userId: number;
+    title: number;
+    about: number;
+    skills: number;
+    languages: number;
+    level: number;
+    responseTime: number;
+    responseRate: number;
+    onTimeDelivery: number;
+    explanationRate: number;
+    completedOrders: number;
+    successfulOrders: number;
+    ratingValue: number;
+    reviewCount: number;
+    status: number;
+    verified: number;
+    submittedAt: number;
+    approvedAt: number;
+    updatedAt: number;
+    _all: number;
+};
+export type FreelancerProfileAvgAggregateInputType = {
+    responseTime?: true;
+    responseRate?: true;
+    onTimeDelivery?: true;
+    explanationRate?: true;
+    completedOrders?: true;
+    successfulOrders?: true;
+    ratingValue?: true;
+    reviewCount?: true;
+};
+export type FreelancerProfileSumAggregateInputType = {
+    responseTime?: true;
+    responseRate?: true;
+    onTimeDelivery?: true;
+    explanationRate?: true;
+    completedOrders?: true;
+    successfulOrders?: true;
+    ratingValue?: true;
+    reviewCount?: true;
+};
+export type FreelancerProfileMinAggregateInputType = {
+    id?: true;
+    userId?: true;
+    title?: true;
+    about?: true;
+    level?: true;
+    responseTime?: true;
+    responseRate?: true;
+    onTimeDelivery?: true;
+    explanationRate?: true;
+    completedOrders?: true;
+    successfulOrders?: true;
+    ratingValue?: true;
+    reviewCount?: true;
+    status?: true;
+    verified?: true;
+    submittedAt?: true;
+    approvedAt?: true;
+    updatedAt?: true;
+};
+export type FreelancerProfileMaxAggregateInputType = {
+    id?: true;
+    userId?: true;
+    title?: true;
+    about?: true;
+    level?: true;
+    responseTime?: true;
+    responseRate?: true;
+    onTimeDelivery?: true;
+    explanationRate?: true;
+    completedOrders?: true;
+    successfulOrders?: true;
+    ratingValue?: true;
+    reviewCount?: true;
+    status?: true;
+    verified?: true;
+    submittedAt?: true;
+    approvedAt?: true;
+    updatedAt?: true;
+};
+export type FreelancerProfileCountAggregateInputType = {
+    id?: true;
+    userId?: true;
+    title?: true;
+    about?: true;
+    skills?: true;
+    languages?: true;
+    level?: true;
+    responseTime?: true;
+    responseRate?: true;
+    onTimeDelivery?: true;
+    explanationRate?: true;
+    completedOrders?: true;
+    successfulOrders?: true;
+    ratingValue?: true;
+    reviewCount?: true;
+    status?: true;
+    verified?: true;
+    submittedAt?: true;
+    approvedAt?: true;
+    updatedAt?: true;
+    _all?: true;
+};
+export type FreelancerProfileAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which FreelancerProfile to aggregate.
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of FreelancerProfiles to fetch.
+     */
+    orderBy?: Prisma.FreelancerProfileOrderByWithRelationInput | Prisma.FreelancerProfileOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.FreelancerProfileWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` FreelancerProfiles from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` FreelancerProfiles.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned FreelancerProfiles
+    **/
+    _count?: true | FreelancerProfileCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: FreelancerProfileAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: FreelancerProfileSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: FreelancerProfileMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: FreelancerProfileMaxAggregateInputType;
+};
+export type GetFreelancerProfileAggregateType<T extends FreelancerProfileAggregateArgs> = {
+    [P in keyof T & keyof AggregateFreelancerProfile]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateFreelancerProfile[P]> : Prisma.GetScalarType<T[P], AggregateFreelancerProfile[P]>;
+};
+export type FreelancerProfileGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.FreelancerProfileWhereInput;
+    orderBy?: Prisma.FreelancerProfileOrderByWithAggregationInput | Prisma.FreelancerProfileOrderByWithAggregationInput[];
+    by: Prisma.FreelancerProfileScalarFieldEnum[] | Prisma.FreelancerProfileScalarFieldEnum;
+    having?: Prisma.FreelancerProfileScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: FreelancerProfileCountAggregateInputType | true;
+    _avg?: FreelancerProfileAvgAggregateInputType;
+    _sum?: FreelancerProfileSumAggregateInputType;
+    _min?: FreelancerProfileMinAggregateInputType;
+    _max?: FreelancerProfileMaxAggregateInputType;
+};
+export type FreelancerProfileGroupByOutputType = {
+    id: string;
+    userId: string;
+    title: string | null;
+    about: string | null;
+    skills: string[];
+    languages: string[];
+    level: string;
+    responseTime: number;
+    responseRate: number;
+    onTimeDelivery: number;
+    explanationRate: number;
+    completedOrders: number;
+    successfulOrders: number;
+    ratingValue: number;
+    reviewCount: number;
+    status: string;
+    verified: boolean;
+    submittedAt: Date | null;
+    approvedAt: Date | null;
+    updatedAt: Date;
+    _count: FreelancerProfileCountAggregateOutputType | null;
+    _avg: FreelancerProfileAvgAggregateOutputType | null;
+    _sum: FreelancerProfileSumAggregateOutputType | null;
+    _min: FreelancerProfileMinAggregateOutputType | null;
+    _max: FreelancerProfileMaxAggregateOutputType | null;
+};
+export type GetFreelancerProfileGroupByPayload<T extends FreelancerProfileGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<FreelancerProfileGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof FreelancerProfileGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], FreelancerProfileGroupByOutputType[P]> : Prisma.GetScalarType<T[P], FreelancerProfileGroupByOutputType[P]>;
+}>>;
+export type FreelancerProfileWhereInput = {
+    AND?: Prisma.FreelancerProfileWhereInput | Prisma.FreelancerProfileWhereInput[];
+    OR?: Prisma.FreelancerProfileWhereInput[];
+    NOT?: Prisma.FreelancerProfileWhereInput | Prisma.FreelancerProfileWhereInput[];
+    id?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    userId?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    title?: Prisma.StringNullableFilter<"FreelancerProfile"> | string | null;
+    about?: Prisma.StringNullableFilter<"FreelancerProfile"> | string | null;
+    skills?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    languages?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    level?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    responseTime?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    responseRate?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    onTimeDelivery?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    explanationRate?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    completedOrders?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    successfulOrders?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    ratingValue?: Prisma.FloatFilter<"FreelancerProfile"> | number;
+    reviewCount?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    status?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    verified?: Prisma.BoolFilter<"FreelancerProfile"> | boolean;
+    submittedAt?: Prisma.DateTimeNullableFilter<"FreelancerProfile"> | Date | string | null;
+    approvedAt?: Prisma.DateTimeNullableFilter<"FreelancerProfile"> | Date | string | null;
+    updatedAt?: Prisma.DateTimeFilter<"FreelancerProfile"> | Date | string;
+    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+};
+export type FreelancerProfileOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    title?: Prisma.SortOrderInput | Prisma.SortOrder;
+    about?: Prisma.SortOrderInput | Prisma.SortOrder;
+    skills?: Prisma.SortOrder;
+    languages?: Prisma.SortOrder;
+    level?: Prisma.SortOrder;
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    verified?: Prisma.SortOrder;
+    submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    user?: Prisma.UserOrderByWithRelationInput;
+};
+export type FreelancerProfileWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    userId?: string;
+    AND?: Prisma.FreelancerProfileWhereInput | Prisma.FreelancerProfileWhereInput[];
+    OR?: Prisma.FreelancerProfileWhereInput[];
+    NOT?: Prisma.FreelancerProfileWhereInput | Prisma.FreelancerProfileWhereInput[];
+    title?: Prisma.StringNullableFilter<"FreelancerProfile"> | string | null;
+    about?: Prisma.StringNullableFilter<"FreelancerProfile"> | string | null;
+    skills?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    languages?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    level?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    responseTime?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    responseRate?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    onTimeDelivery?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    explanationRate?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    completedOrders?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    successfulOrders?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    ratingValue?: Prisma.FloatFilter<"FreelancerProfile"> | number;
+    reviewCount?: Prisma.IntFilter<"FreelancerProfile"> | number;
+    status?: Prisma.StringFilter<"FreelancerProfile"> | string;
+    verified?: Prisma.BoolFilter<"FreelancerProfile"> | boolean;
+    submittedAt?: Prisma.DateTimeNullableFilter<"FreelancerProfile"> | Date | string | null;
+    approvedAt?: Prisma.DateTimeNullableFilter<"FreelancerProfile"> | Date | string | null;
+    updatedAt?: Prisma.DateTimeFilter<"FreelancerProfile"> | Date | string;
+    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+}, "id" | "userId">;
+export type FreelancerProfileOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    title?: Prisma.SortOrderInput | Prisma.SortOrder;
+    about?: Prisma.SortOrderInput | Prisma.SortOrder;
+    skills?: Prisma.SortOrder;
+    languages?: Prisma.SortOrder;
+    level?: Prisma.SortOrder;
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    verified?: Prisma.SortOrder;
+    submittedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    approvedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    _count?: Prisma.FreelancerProfileCountOrderByAggregateInput;
+    _avg?: Prisma.FreelancerProfileAvgOrderByAggregateInput;
+    _max?: Prisma.FreelancerProfileMaxOrderByAggregateInput;
+    _min?: Prisma.FreelancerProfileMinOrderByAggregateInput;
+    _sum?: Prisma.FreelancerProfileSumOrderByAggregateInput;
+};
+export type FreelancerProfileScalarWhereWithAggregatesInput = {
+    AND?: Prisma.FreelancerProfileScalarWhereWithAggregatesInput | Prisma.FreelancerProfileScalarWhereWithAggregatesInput[];
+    OR?: Prisma.FreelancerProfileScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.FreelancerProfileScalarWhereWithAggregatesInput | Prisma.FreelancerProfileScalarWhereWithAggregatesInput[];
+    id?: Prisma.StringWithAggregatesFilter<"FreelancerProfile"> | string;
+    userId?: Prisma.StringWithAggregatesFilter<"FreelancerProfile"> | string;
+    title?: Prisma.StringNullableWithAggregatesFilter<"FreelancerProfile"> | string | null;
+    about?: Prisma.StringNullableWithAggregatesFilter<"FreelancerProfile"> | string | null;
+    skills?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    languages?: Prisma.StringNullableListFilter<"FreelancerProfile">;
+    level?: Prisma.StringWithAggregatesFilter<"FreelancerProfile"> | string;
+    responseTime?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    responseRate?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    onTimeDelivery?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    explanationRate?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    completedOrders?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    successfulOrders?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    ratingValue?: Prisma.FloatWithAggregatesFilter<"FreelancerProfile"> | number;
+    reviewCount?: Prisma.IntWithAggregatesFilter<"FreelancerProfile"> | number;
+    status?: Prisma.StringWithAggregatesFilter<"FreelancerProfile"> | string;
+    verified?: Prisma.BoolWithAggregatesFilter<"FreelancerProfile"> | boolean;
+    submittedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"FreelancerProfile"> | Date | string | null;
+    approvedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"FreelancerProfile"> | Date | string | null;
+    updatedAt?: Prisma.DateTimeWithAggregatesFilter<"FreelancerProfile"> | Date | string;
+};
+export type FreelancerProfileCreateInput = {
+    id?: string;
+    title?: string | null;
+    about?: string | null;
+    skills?: Prisma.FreelancerProfileCreateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileCreatelanguagesInput | string[];
+    level?: string;
+    responseTime?: number;
+    responseRate?: number;
+    onTimeDelivery?: number;
+    explanationRate?: number;
+    completedOrders?: number;
+    successfulOrders?: number;
+    ratingValue?: number;
+    reviewCount?: number;
+    status?: string;
+    verified?: boolean;
+    submittedAt?: Date | string | null;
+    approvedAt?: Date | string | null;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutFreelancerProfileInput;
+};
+export type FreelancerProfileUncheckedCreateInput = {
+    id?: string;
+    userId: string;
+    title?: string | null;
+    about?: string | null;
+    skills?: Prisma.FreelancerProfileCreateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileCreatelanguagesInput | string[];
+    level?: string;
+    responseTime?: number;
+    responseRate?: number;
+    onTimeDelivery?: number;
+    explanationRate?: number;
+    completedOrders?: number;
+    successfulOrders?: number;
+    ratingValue?: number;
+    reviewCount?: number;
+    status?: string;
+    verified?: boolean;
+    submittedAt?: Date | string | null;
+    approvedAt?: Date | string | null;
+    updatedAt?: Date | string;
+};
+export type FreelancerProfileUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutFreelancerProfileNestedInput;
+};
+export type FreelancerProfileUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type FreelancerProfileCreateManyInput = {
+    id?: string;
+    userId: string;
+    title?: string | null;
+    about?: string | null;
+    skills?: Prisma.FreelancerProfileCreateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileCreatelanguagesInput | string[];
+    level?: string;
+    responseTime?: number;
+    responseRate?: number;
+    onTimeDelivery?: number;
+    explanationRate?: number;
+    completedOrders?: number;
+    successfulOrders?: number;
+    ratingValue?: number;
+    reviewCount?: number;
+    status?: string;
+    verified?: boolean;
+    submittedAt?: Date | string | null;
+    approvedAt?: Date | string | null;
+    updatedAt?: Date | string;
+};
+export type FreelancerProfileUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type FreelancerProfileUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type FreelancerProfileNullableScalarRelationFilter = {
+    is?: Prisma.FreelancerProfileWhereInput | null;
+    isNot?: Prisma.FreelancerProfileWhereInput | null;
+};
+export type FreelancerProfileCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    about?: Prisma.SortOrder;
+    skills?: Prisma.SortOrder;
+    languages?: Prisma.SortOrder;
+    level?: Prisma.SortOrder;
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    verified?: Prisma.SortOrder;
+    submittedAt?: Prisma.SortOrder;
+    approvedAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type FreelancerProfileAvgOrderByAggregateInput = {
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+};
+export type FreelancerProfileMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    about?: Prisma.SortOrder;
+    level?: Prisma.SortOrder;
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    verified?: Prisma.SortOrder;
+    submittedAt?: Prisma.SortOrder;
+    approvedAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type FreelancerProfileMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    title?: Prisma.SortOrder;
+    about?: Prisma.SortOrder;
+    level?: Prisma.SortOrder;
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    verified?: Prisma.SortOrder;
+    submittedAt?: Prisma.SortOrder;
+    approvedAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type FreelancerProfileSumOrderByAggregateInput = {
+    responseTime?: Prisma.SortOrder;
+    responseRate?: Prisma.SortOrder;
+    onTimeDelivery?: Prisma.SortOrder;
+    explanationRate?: Prisma.SortOrder;
+    completedOrders?: Prisma.SortOrder;
+    successfulOrders?: Prisma.SortOrder;
+    ratingValue?: Prisma.SortOrder;
+    reviewCount?: Prisma.SortOrder;
+};
+export type FreelancerProfileCreateNestedOneWithoutUserInput = {
+    create?: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+    connectOrCreate?: Prisma.FreelancerProfileCreateOrConnectWithoutUserInput;
+    connect?: Prisma.FreelancerProfileWhereUniqueInput;
+};
+export type FreelancerProfileUncheckedCreateNestedOneWithoutUserInput = {
+    create?: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+    connectOrCreate?: Prisma.FreelancerProfileCreateOrConnectWithoutUserInput;
+    connect?: Prisma.FreelancerProfileWhereUniqueInput;
+};
+export type FreelancerProfileUpdateOneWithoutUserNestedInput = {
+    create?: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+    connectOrCreate?: Prisma.FreelancerProfileCreateOrConnectWithoutUserInput;
+    upsert?: Prisma.FreelancerProfileUpsertWithoutUserInput;
+    disconnect?: Prisma.FreelancerProfileWhereInput | boolean;
+    delete?: Prisma.FreelancerProfileWhereInput | boolean;
+    connect?: Prisma.FreelancerProfileWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.FreelancerProfileUpdateToOneWithWhereWithoutUserInput, Prisma.FreelancerProfileUpdateWithoutUserInput>, Prisma.FreelancerProfileUncheckedUpdateWithoutUserInput>;
+};
+export type FreelancerProfileUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+    connectOrCreate?: Prisma.FreelancerProfileCreateOrConnectWithoutUserInput;
+    upsert?: Prisma.FreelancerProfileUpsertWithoutUserInput;
+    disconnect?: Prisma.FreelancerProfileWhereInput | boolean;
+    delete?: Prisma.FreelancerProfileWhereInput | boolean;
+    connect?: Prisma.FreelancerProfileWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.FreelancerProfileUpdateToOneWithWhereWithoutUserInput, Prisma.FreelancerProfileUpdateWithoutUserInput>, Prisma.FreelancerProfileUncheckedUpdateWithoutUserInput>;
+};
+export type FreelancerProfileCreateskillsInput = {
+    set: string[];
+};
+export type FreelancerProfileCreatelanguagesInput = {
+    set: string[];
+};
+export type FreelancerProfileUpdateskillsInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type FreelancerProfileUpdatelanguagesInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type FloatFieldUpdateOperationsInput = {
+    set?: number;
+    increment?: number;
+    decrement?: number;
+    multiply?: number;
+    divide?: number;
+};
+export type FreelancerProfileCreateWithoutUserInput = {
+    id?: string;
+    title?: string | null;
+    about?: string | null;
+    skills?: Prisma.FreelancerProfileCreateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileCreatelanguagesInput | string[];
+    level?: string;
+    responseTime?: number;
+    responseRate?: number;
+    onTimeDelivery?: number;
+    explanationRate?: number;
+    completedOrders?: number;
+    successfulOrders?: number;
+    ratingValue?: number;
+    reviewCount?: number;
+    status?: string;
+    verified?: boolean;
+    submittedAt?: Date | string | null;
+    approvedAt?: Date | string | null;
+    updatedAt?: Date | string;
+};
+export type FreelancerProfileUncheckedCreateWithoutUserInput = {
+    id?: string;
+    title?: string | null;
+    about?: string | null;
+    skills?: Prisma.FreelancerProfileCreateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileCreatelanguagesInput | string[];
+    level?: string;
+    responseTime?: number;
+    responseRate?: number;
+    onTimeDelivery?: number;
+    explanationRate?: number;
+    completedOrders?: number;
+    successfulOrders?: number;
+    ratingValue?: number;
+    reviewCount?: number;
+    status?: string;
+    verified?: boolean;
+    submittedAt?: Date | string | null;
+    approvedAt?: Date | string | null;
+    updatedAt?: Date | string;
+};
+export type FreelancerProfileCreateOrConnectWithoutUserInput = {
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+    create: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+};
+export type FreelancerProfileUpsertWithoutUserInput = {
+    update: Prisma.XOR<Prisma.FreelancerProfileUpdateWithoutUserInput, Prisma.FreelancerProfileUncheckedUpdateWithoutUserInput>;
+    create: Prisma.XOR<Prisma.FreelancerProfileCreateWithoutUserInput, Prisma.FreelancerProfileUncheckedCreateWithoutUserInput>;
+    where?: Prisma.FreelancerProfileWhereInput;
+};
+export type FreelancerProfileUpdateToOneWithWhereWithoutUserInput = {
+    where?: Prisma.FreelancerProfileWhereInput;
+    data: Prisma.XOR<Prisma.FreelancerProfileUpdateWithoutUserInput, Prisma.FreelancerProfileUncheckedUpdateWithoutUserInput>;
+};
+export type FreelancerProfileUpdateWithoutUserInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type FreelancerProfileUncheckedUpdateWithoutUserInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    title?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    skills?: Prisma.FreelancerProfileUpdateskillsInput | string[];
+    languages?: Prisma.FreelancerProfileUpdatelanguagesInput | string[];
+    level?: Prisma.StringFieldUpdateOperationsInput | string;
+    responseTime?: Prisma.IntFieldUpdateOperationsInput | number;
+    responseRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    onTimeDelivery?: Prisma.IntFieldUpdateOperationsInput | number;
+    explanationRate?: Prisma.IntFieldUpdateOperationsInput | number;
+    completedOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    successfulOrders?: Prisma.IntFieldUpdateOperationsInput | number;
+    ratingValue?: Prisma.FloatFieldUpdateOperationsInput | number;
+    reviewCount?: Prisma.IntFieldUpdateOperationsInput | number;
+    status?: Prisma.StringFieldUpdateOperationsInput | string;
+    verified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    submittedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    approvedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type FreelancerProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    title?: boolean;
+    about?: boolean;
+    skills?: boolean;
+    languages?: boolean;
+    level?: boolean;
+    responseTime?: boolean;
+    responseRate?: boolean;
+    onTimeDelivery?: boolean;
+    explanationRate?: boolean;
+    completedOrders?: boolean;
+    successfulOrders?: boolean;
+    ratingValue?: boolean;
+    reviewCount?: boolean;
+    status?: boolean;
+    verified?: boolean;
+    submittedAt?: boolean;
+    approvedAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["freelancerProfile"]>;
+export type FreelancerProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    title?: boolean;
+    about?: boolean;
+    skills?: boolean;
+    languages?: boolean;
+    level?: boolean;
+    responseTime?: boolean;
+    responseRate?: boolean;
+    onTimeDelivery?: boolean;
+    explanationRate?: boolean;
+    completedOrders?: boolean;
+    successfulOrders?: boolean;
+    ratingValue?: boolean;
+    reviewCount?: boolean;
+    status?: boolean;
+    verified?: boolean;
+    submittedAt?: boolean;
+    approvedAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["freelancerProfile"]>;
+export type FreelancerProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    title?: boolean;
+    about?: boolean;
+    skills?: boolean;
+    languages?: boolean;
+    level?: boolean;
+    responseTime?: boolean;
+    responseRate?: boolean;
+    onTimeDelivery?: boolean;
+    explanationRate?: boolean;
+    completedOrders?: boolean;
+    successfulOrders?: boolean;
+    ratingValue?: boolean;
+    reviewCount?: boolean;
+    status?: boolean;
+    verified?: boolean;
+    submittedAt?: boolean;
+    approvedAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["freelancerProfile"]>;
+export type FreelancerProfileSelectScalar = {
+    id?: boolean;
+    userId?: boolean;
+    title?: boolean;
+    about?: boolean;
+    skills?: boolean;
+    languages?: boolean;
+    level?: boolean;
+    responseTime?: boolean;
+    responseRate?: boolean;
+    onTimeDelivery?: boolean;
+    explanationRate?: boolean;
+    completedOrders?: boolean;
+    successfulOrders?: boolean;
+    ratingValue?: boolean;
+    reviewCount?: boolean;
+    status?: boolean;
+    verified?: boolean;
+    submittedAt?: boolean;
+    approvedAt?: boolean;
+    updatedAt?: boolean;
+};
+export type FreelancerProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "about" | "skills" | "languages" | "level" | "responseTime" | "responseRate" | "onTimeDelivery" | "explanationRate" | "completedOrders" | "successfulOrders" | "ratingValue" | "reviewCount" | "status" | "verified" | "submittedAt" | "approvedAt" | "updatedAt", ExtArgs["result"]["freelancerProfile"]>;
+export type FreelancerProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type FreelancerProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type FreelancerProfileIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+};
+export type $FreelancerProfilePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "FreelancerProfile";
+    objects: {
+        user: Prisma.$UserPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        userId: string;
+        title: string | null;
+        about: string | null;
+        skills: string[];
+        languages: string[];
+        level: string;
+        responseTime: number;
+        responseRate: number;
+        onTimeDelivery: number;
+        explanationRate: number;
+        completedOrders: number;
+        successfulOrders: number;
+        ratingValue: number;
+        reviewCount: number;
+        status: string;
+        verified: boolean;
+        submittedAt: Date | null;
+        approvedAt: Date | null;
+        updatedAt: Date;
+    }, ExtArgs["result"]["freelancerProfile"]>;
+    composites: {};
+};
+export type FreelancerProfileGetPayload<S extends boolean | null | undefined | FreelancerProfileDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload, S>;
+export type FreelancerProfileCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<FreelancerProfileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: FreelancerProfileCountAggregateInputType | true;
+};
+export interface FreelancerProfileDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['FreelancerProfile'];
+        meta: {
+            name: 'FreelancerProfile';
+        };
+    };
+    /**
+     * Find zero or one FreelancerProfile that matches the filter.
+     * @param {FreelancerProfileFindUniqueArgs} args - Arguments to find a FreelancerProfile
+     * @example
+     * // Get one FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FreelancerProfileFindUniqueArgs>(args: Prisma.SelectSubset<T, FreelancerProfileFindUniqueArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one FreelancerProfile that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FreelancerProfileFindUniqueOrThrowArgs} args - Arguments to find a FreelancerProfile
+     * @example
+     * // Get one FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FreelancerProfileFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, FreelancerProfileFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first FreelancerProfile that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileFindFirstArgs} args - Arguments to find a FreelancerProfile
+     * @example
+     * // Get one FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FreelancerProfileFindFirstArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileFindFirstArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first FreelancerProfile that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileFindFirstOrThrowArgs} args - Arguments to find a FreelancerProfile
+     * @example
+     * // Get one FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FreelancerProfileFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more FreelancerProfiles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all FreelancerProfiles
+     * const freelancerProfiles = await prisma.freelancerProfile.findMany()
+     *
+     * // Get first 10 FreelancerProfiles
+     * const freelancerProfiles = await prisma.freelancerProfile.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const freelancerProfileWithIdOnly = await prisma.freelancerProfile.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends FreelancerProfileFindManyArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a FreelancerProfile.
+     * @param {FreelancerProfileCreateArgs} args - Arguments to create a FreelancerProfile.
+     * @example
+     * // Create one FreelancerProfile
+     * const FreelancerProfile = await prisma.freelancerProfile.create({
+     *   data: {
+     *     // ... data to create a FreelancerProfile
+     *   }
+     * })
+     *
+     */
+    create<T extends FreelancerProfileCreateArgs>(args: Prisma.SelectSubset<T, FreelancerProfileCreateArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many FreelancerProfiles.
+     * @param {FreelancerProfileCreateManyArgs} args - Arguments to create many FreelancerProfiles.
+     * @example
+     * // Create many FreelancerProfiles
+     * const freelancerProfile = await prisma.freelancerProfile.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends FreelancerProfileCreateManyArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many FreelancerProfiles and returns the data saved in the database.
+     * @param {FreelancerProfileCreateManyAndReturnArgs} args - Arguments to create many FreelancerProfiles.
+     * @example
+     * // Create many FreelancerProfiles
+     * const freelancerProfile = await prisma.freelancerProfile.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many FreelancerProfiles and only return the `id`
+     * const freelancerProfileWithIdOnly = await prisma.freelancerProfile.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends FreelancerProfileCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a FreelancerProfile.
+     * @param {FreelancerProfileDeleteArgs} args - Arguments to delete one FreelancerProfile.
+     * @example
+     * // Delete one FreelancerProfile
+     * const FreelancerProfile = await prisma.freelancerProfile.delete({
+     *   where: {
+     *     // ... filter to delete one FreelancerProfile
+     *   }
+     * })
+     *
+     */
+    delete<T extends FreelancerProfileDeleteArgs>(args: Prisma.SelectSubset<T, FreelancerProfileDeleteArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one FreelancerProfile.
+     * @param {FreelancerProfileUpdateArgs} args - Arguments to update one FreelancerProfile.
+     * @example
+     * // Update one FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends FreelancerProfileUpdateArgs>(args: Prisma.SelectSubset<T, FreelancerProfileUpdateArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more FreelancerProfiles.
+     * @param {FreelancerProfileDeleteManyArgs} args - Arguments to filter FreelancerProfiles to delete.
+     * @example
+     * // Delete a few FreelancerProfiles
+     * const { count } = await prisma.freelancerProfile.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends FreelancerProfileDeleteManyArgs>(args?: Prisma.SelectSubset<T, FreelancerProfileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more FreelancerProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many FreelancerProfiles
+     * const freelancerProfile = await prisma.freelancerProfile.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends FreelancerProfileUpdateManyArgs>(args: Prisma.SelectSubset<T, FreelancerProfileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more FreelancerProfiles and returns the data updated in the database.
+     * @param {FreelancerProfileUpdateManyAndReturnArgs} args - Arguments to update many FreelancerProfiles.
+     * @example
+     * // Update many FreelancerProfiles
+     * const freelancerProfile = await prisma.freelancerProfile.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more FreelancerProfiles and only return the `id`
+     * const freelancerProfileWithIdOnly = await prisma.freelancerProfile.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends FreelancerProfileUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, FreelancerProfileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one FreelancerProfile.
+     * @param {FreelancerProfileUpsertArgs} args - Arguments to update or create a FreelancerProfile.
+     * @example
+     * // Update or create a FreelancerProfile
+     * const freelancerProfile = await prisma.freelancerProfile.upsert({
+     *   create: {
+     *     // ... data to create a FreelancerProfile
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the FreelancerProfile we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FreelancerProfileUpsertArgs>(args: Prisma.SelectSubset<T, FreelancerProfileUpsertArgs<ExtArgs>>): Prisma.Prisma__FreelancerProfileClient<runtime.Types.Result.GetResult<Prisma.$FreelancerProfilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of FreelancerProfiles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileCountArgs} args - Arguments to filter FreelancerProfiles to count.
+     * @example
+     * // Count the number of FreelancerProfiles
+     * const count = await prisma.freelancerProfile.count({
+     *   where: {
+     *     // ... the filter for the FreelancerProfiles we want to count
+     *   }
+     * })
+    **/
+    count<T extends FreelancerProfileCountArgs>(args?: Prisma.Subset<T, FreelancerProfileCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], FreelancerProfileCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a FreelancerProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FreelancerProfileAggregateArgs>(args: Prisma.Subset<T, FreelancerProfileAggregateArgs>): Prisma.PrismaPromise<GetFreelancerProfileAggregateType<T>>;
+    /**
+     * Group by FreelancerProfile.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FreelancerProfileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends FreelancerProfileGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: FreelancerProfileGroupByArgs['orderBy'];
+    } : {
+        orderBy?: FreelancerProfileGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, FreelancerProfileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFreelancerProfileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the FreelancerProfile model
+     */
+    readonly fields: FreelancerProfileFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for FreelancerProfile.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__FreelancerProfileClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the FreelancerProfile model
+ */
+export interface FreelancerProfileFieldRefs {
+    readonly id: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly userId: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly title: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly about: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly skills: Prisma.FieldRef<"FreelancerProfile", 'String[]'>;
+    readonly languages: Prisma.FieldRef<"FreelancerProfile", 'String[]'>;
+    readonly level: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly responseTime: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly responseRate: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly onTimeDelivery: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly explanationRate: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly completedOrders: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly successfulOrders: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly ratingValue: Prisma.FieldRef<"FreelancerProfile", 'Float'>;
+    readonly reviewCount: Prisma.FieldRef<"FreelancerProfile", 'Int'>;
+    readonly status: Prisma.FieldRef<"FreelancerProfile", 'String'>;
+    readonly verified: Prisma.FieldRef<"FreelancerProfile", 'Boolean'>;
+    readonly submittedAt: Prisma.FieldRef<"FreelancerProfile", 'DateTime'>;
+    readonly approvedAt: Prisma.FieldRef<"FreelancerProfile", 'DateTime'>;
+    readonly updatedAt: Prisma.FieldRef<"FreelancerProfile", 'DateTime'>;
+}
+/**
+ * FreelancerProfile findUnique
+ */
+export type FreelancerProfileFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter, which FreelancerProfile to fetch.
+     */
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+};
+/**
+ * FreelancerProfile findUniqueOrThrow
+ */
+export type FreelancerProfileFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter, which FreelancerProfile to fetch.
+     */
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+};
+/**
+ * FreelancerProfile findFirst
+ */
+export type FreelancerProfileFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter, which FreelancerProfile to fetch.
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of FreelancerProfiles to fetch.
+     */
+    orderBy?: Prisma.FreelancerProfileOrderByWithRelationInput | Prisma.FreelancerProfileOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for FreelancerProfiles.
+     */
+    cursor?: Prisma.FreelancerProfileWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` FreelancerProfiles from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` FreelancerProfiles.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of FreelancerProfiles.
+     */
+    distinct?: Prisma.FreelancerProfileScalarFieldEnum | Prisma.FreelancerProfileScalarFieldEnum[];
+};
+/**
+ * FreelancerProfile findFirstOrThrow
+ */
+export type FreelancerProfileFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter, which FreelancerProfile to fetch.
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of FreelancerProfiles to fetch.
+     */
+    orderBy?: Prisma.FreelancerProfileOrderByWithRelationInput | Prisma.FreelancerProfileOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for FreelancerProfiles.
+     */
+    cursor?: Prisma.FreelancerProfileWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` FreelancerProfiles from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` FreelancerProfiles.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of FreelancerProfiles.
+     */
+    distinct?: Prisma.FreelancerProfileScalarFieldEnum | Prisma.FreelancerProfileScalarFieldEnum[];
+};
+/**
+ * FreelancerProfile findMany
+ */
+export type FreelancerProfileFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter, which FreelancerProfiles to fetch.
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of FreelancerProfiles to fetch.
+     */
+    orderBy?: Prisma.FreelancerProfileOrderByWithRelationInput | Prisma.FreelancerProfileOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing FreelancerProfiles.
+     */
+    cursor?: Prisma.FreelancerProfileWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` FreelancerProfiles from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` FreelancerProfiles.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of FreelancerProfiles.
+     */
+    distinct?: Prisma.FreelancerProfileScalarFieldEnum | Prisma.FreelancerProfileScalarFieldEnum[];
+};
+/**
+ * FreelancerProfile create
+ */
+export type FreelancerProfileCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a FreelancerProfile.
+     */
+    data: Prisma.XOR<Prisma.FreelancerProfileCreateInput, Prisma.FreelancerProfileUncheckedCreateInput>;
+};
+/**
+ * FreelancerProfile createMany
+ */
+export type FreelancerProfileCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many FreelancerProfiles.
+     */
+    data: Prisma.FreelancerProfileCreateManyInput | Prisma.FreelancerProfileCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * FreelancerProfile createManyAndReturn
+ */
+export type FreelancerProfileCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * The data used to create many FreelancerProfiles.
+     */
+    data: Prisma.FreelancerProfileCreateManyInput | Prisma.FreelancerProfileCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * FreelancerProfile update
+ */
+export type FreelancerProfileUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a FreelancerProfile.
+     */
+    data: Prisma.XOR<Prisma.FreelancerProfileUpdateInput, Prisma.FreelancerProfileUncheckedUpdateInput>;
+    /**
+     * Choose, which FreelancerProfile to update.
+     */
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+};
+/**
+ * FreelancerProfile updateMany
+ */
+export type FreelancerProfileUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update FreelancerProfiles.
+     */
+    data: Prisma.XOR<Prisma.FreelancerProfileUpdateManyMutationInput, Prisma.FreelancerProfileUncheckedUpdateManyInput>;
+    /**
+     * Filter which FreelancerProfiles to update
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * Limit how many FreelancerProfiles to update.
+     */
+    limit?: number;
+};
+/**
+ * FreelancerProfile updateManyAndReturn
+ */
+export type FreelancerProfileUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * The data used to update FreelancerProfiles.
+     */
+    data: Prisma.XOR<Prisma.FreelancerProfileUpdateManyMutationInput, Prisma.FreelancerProfileUncheckedUpdateManyInput>;
+    /**
+     * Filter which FreelancerProfiles to update
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * Limit how many FreelancerProfiles to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * FreelancerProfile upsert
+ */
+export type FreelancerProfileUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the FreelancerProfile to update in case it exists.
+     */
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+    /**
+     * In case the FreelancerProfile found by the `where` argument doesn't exist, create a new FreelancerProfile with this data.
+     */
+    create: Prisma.XOR<Prisma.FreelancerProfileCreateInput, Prisma.FreelancerProfileUncheckedCreateInput>;
+    /**
+     * In case the FreelancerProfile was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.FreelancerProfileUpdateInput, Prisma.FreelancerProfileUncheckedUpdateInput>;
+};
+/**
+ * FreelancerProfile delete
+ */
+export type FreelancerProfileDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+    /**
+     * Filter which FreelancerProfile to delete.
+     */
+    where: Prisma.FreelancerProfileWhereUniqueInput;
+};
+/**
+ * FreelancerProfile deleteMany
+ */
+export type FreelancerProfileDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which FreelancerProfiles to delete
+     */
+    where?: Prisma.FreelancerProfileWhereInput;
+    /**
+     * Limit how many FreelancerProfiles to delete.
+     */
+    limit?: number;
+};
+/**
+ * FreelancerProfile without action
+ */
+export type FreelancerProfileDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FreelancerProfile
+     */
+    select?: Prisma.FreelancerProfileSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the FreelancerProfile
+     */
+    omit?: Prisma.FreelancerProfileOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.FreelancerProfileInclude<ExtArgs> | null;
+};
