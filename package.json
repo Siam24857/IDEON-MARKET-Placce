@@ -1,0 +1,38 @@
+{
+  "name": "ideons-ecosystem",
+  "version": "0.1.0",
+  "private": true,
+  "description": "IDEONS ECOSYSTEM — one unified platform: Website, Marketplace, E-commerce, Job Hunter, Ingetic AI, E-Book Platform, Hello Resources, Portfolio, Company ID.",
+  "workspaces": [
+    "packages/*",
+    "apps/marketplace",
+    "apps/web",
+    "apps/job-hunter"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@11.6.2",
+  "scripts": {
+    "dev": "npm run dev --prefix apps/marketplace",
+    "dev:website": "npm run dev --prefix apps/marketplace",
+    "build": "prisma generate && turbo run build",
+    "build:website": "npm run build --prefix apps/marketplace",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "db:generate": "prisma generate",
+    "db:validate": "prisma validate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "prisma db seed",
+    "db:studio": "prisma studio",
+    "db:diff": "prisma migrate diff"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "prisma": "^7.10.0",
+    "tsx": "^4.23.13",
+    "turbo": "^2.5.0"
+  }
+}

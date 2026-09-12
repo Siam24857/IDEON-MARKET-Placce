@@ -1,0 +1,32 @@
+
+> ideons-web@0.1.0 build
+> next build
+
+▲ Next.js 16.3.5 (Turbopack)
+- Environments: .env
+✓ Running next.config.ts took 225ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 4.3s
+  Running TypeScript ...
+  Finished TypeScript in 18.9s ...
+  Collecting page data using 3 workers ...
+  Generating static pages using 3 workers (0/5) ...
+  Generating static pages using 3 workers (1/5) 
+  Generating static pages using 3 workers (2/5) 
+  Generating static pages using 3 workers (3/5) 
+✓ Generating static pages using 3 workers (5/5) in 861ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/auth/[...all]
+├ ƒ /dashboard
+├ ○ /login
+└ ○ /register
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

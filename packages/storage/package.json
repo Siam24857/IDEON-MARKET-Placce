@@ -1,0 +1,7 @@
+{
+  "name": "@ideons/storage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared file/image storage abstraction (local, S3/R2). Upload validation, signed access, and permission checks for private files.",
+  "type": "module"
+}

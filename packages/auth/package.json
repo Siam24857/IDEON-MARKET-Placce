@@ -1,0 +1,36 @@
+{
+  "name": "@ideons/auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "IDEONS ECOSYSTEM — unified Better Auth server (email/Google, email verification, password reset, RBAC) + shared Next session helpers, bound to @ideons/database.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@better-auth/prisma-adapter": "^1.7.4",
+    "@ideons/database": "*",
+    "@ideons/validation": "*",
+    "better-auth": "^1.7.4"
+  },
+  "peerDependencies": {
+    "next": ">=16",
+    "react": ">=19"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "next": "16.3.5",
+    "react": "19.2.8",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@ideons/payments",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared Stripe integration: Checkout, Payment Intents, webhooks, refunds, platform commission and payouts. Never trust client-side payment status.",
+  "type": "module"
+}

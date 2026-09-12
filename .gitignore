@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+dist
+coverage
+
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Prisma-generated client (regenerate with `npm run db:generate`)
+**/src/generated
+
+.DS_Store
+Thumbs.db
+
+# Keep nested git history (legacy projects) out of the unified repo index
+**/.git/

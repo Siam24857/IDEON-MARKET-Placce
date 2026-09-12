@@ -1,0 +1,7 @@
+{
+  "name": "@ideons/chat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared chat architecture backed by PostgreSQL with a pluggable realtime transport (Socket.IO / Ably / Pusher). Buyer↔Freelancer, Applicant↔Company, User↔AI, Support.",
+  "type": "module"
+}
