@@ -5,7 +5,7 @@ declare const authEnvSchema: z.ZodObject<{
         test: "test";
         production: "production";
     }>>;
-    AUTH_SECRET: z.ZodString;
+    AUTH_SECRET: z.ZodOptional<z.ZodString>;
     AUTH_BASE_URL: z.ZodDefault<z.ZodString>;
     GOOGLE_CLIENT_ID: z.ZodOptional<z.ZodString>;
     GOOGLE_CLIENT_SECRET: z.ZodOptional<z.ZodString>;
@@ -15,4 +15,5 @@ declare const authEnvSchema: z.ZodObject<{
 export type AuthEnv = z.infer<typeof authEnvSchema>;
 export declare const env: AuthEnv;
 export declare const isProduction: boolean;
+export declare function getAuthSecret(): string;
 export {};

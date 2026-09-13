@@ -1,9 +1,10 @@
+import crypto from "node:crypto";
 import { z } from "@ideons/validation";
 const authEnvSchema = z.object({
     NODE_ENV: z
         .enum(["development", "test", "production"])
         .default("development"),
-    AUTH_SECRET: z.string().min(1),
+    AUTH_SECRET: z.string().optional(),
     AUTH_BASE_URL: z.string().url().default("http://localhost:3000"),
     GOOGLE_CLIENT_ID: z.string().optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),
@@ -20,3 +21,13 @@ function loadAuthEnv() {
 }
 export const env = loadAuthEnv();
 export const isProduction = env.NODE_ENV === "production";
+export function getAuthSecret() {
+    if (env.AUTH_SECRET)
+        return env.AUTH_SECRET;
+    if (isProduction) {
+        throw new Error("AUTH_SECRET is required in production. Set a strong random value in your deployment environment (generate one with `openssl rand -base64 32`).");
+    }
+    const devSecret = crypto.randomBytes(32).toString("base64");
+    console.warn("[auth] AUTH_SECRET is not set. Using a randomly generated secret for development — sessions will be invalidated each time the server restarts. Set AUTH_SECRET in your .env for stable dev sessions.");
+    return devSecret;
+}

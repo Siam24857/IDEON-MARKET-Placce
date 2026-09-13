@@ -1,13 +1,13 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "@better-auth/prisma-adapter";
 import { prisma } from "@ideons/database";
-import { env, isProduction } from "./env";
+import { env, getAuthSecret, isProduction } from "./env";
 import { sendPasswordResetEmail, sendVerificationEmail } from "./email/templates";
 
 export const auth = betterAuth({
   appName: "IDEONS Ecosystem",
   baseURL: env.AUTH_BASE_URL,
-  secret: env.AUTH_SECRET,
+  secret: getAuthSecret(),
   database: prismaAdapter(prisma, { provider: "postgresql" }),
   advanced: {
     cookiePrefix: "ideons",

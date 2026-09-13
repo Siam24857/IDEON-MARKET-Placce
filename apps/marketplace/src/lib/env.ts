@@ -8,7 +8,7 @@ const serverEnvSchema = z.object({
   DATABASE_URL: z.string().min(1),
   DIRECT_URL: z.string().optional(),
 
-  AUTH_SECRET: z.string().min(1),
+  AUTH_SECRET: z.string().optional(),
   AUTH_BASE_URL: z.string().url().default("http://localhost:3000"),
 
   GOOGLE_CLIENT_ID: z.string().optional(),
