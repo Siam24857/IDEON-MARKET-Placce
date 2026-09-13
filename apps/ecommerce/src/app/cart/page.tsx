@@ -3,29 +3,48 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Trash2, Plus, Minus, ArrowRight, ArrowLeft } from 'lucide-react';
+import { ShoppingBag, Trash2, Plus, Minus, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { products } from '@/data/mockData';
+import { useCart } from '@/hooks/useCart';
 
 export default function CartPage() {
-  // Simulating cart items from mock products
-  const [cartItems, setCartItems] = useState(
-    products.slice(0, 2).map(p => ({ ...p, quantity: 1 }))
-  );
+  const { items, remove, updateQuantity } = useCart();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const cartItems = items
+    .map((item) => {
+      const product = products.find((p) => p.id === item.id);
+      return product ? { ...product, quantity: item.quantity } : null;
+    })
+    .filter((p): p is NonNullable<typeof p> => p !== null);
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const shipping = 15;
+  const shipping = cartItems.length > 0 ? 15 : 0;
   const total = subtotal + shipping;
 
-  const updateQuantity = (id: string, delta: number) => {
-    setCartItems(prev => prev.map(item => 
-      item.id === id ? { ...item, quantity: Math.max(1, item.quantity + delta) } : item
-    ));
-  };
-
-  const removeItem = (id: string) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
+  async function startCheckout() {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+      const data = await res.json();
+      if (data.success && data.url) {
+        window.location.href = data.url;
+      } else {
+        setError(data.message ?? 'Could not start checkout.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <main className="min-h-screen pt-24 pb-20">
@@ -39,9 +58,9 @@ export default function CartPage() {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Cart Items */}
           <div className="flex-1 space-y-6">
-            <AnimatePresence mode="popLayout">
-              {cartItems.length > 0 ? (
-                cartItems.map((item) => (
+            {cartItems.length > 0 ? (
+              <AnimatePresence mode="popLayout">
+                {cartItems.map((item) => (
                   <motion.div
                     key={item.id}
                     layout
@@ -68,7 +87,7 @@ export default function CartPage() {
                           </button>
                         </div>
                         <button 
-                          onClick={() => removeItem(item.id)}
+                          onClick={() => remove(item.id)}
                           className="p-3 text-gray-700 hover:text-[#ff00ea] transition-colors"
                         >
                           <Trash2 size={20} />
@@ -81,17 +100,17 @@ export default function CartPage() {
                       <p className="text-gray-500 text-xs">${item.price.toFixed(2)} each</p>
                     </div>
                   </motion.div>
-                ))
-              ) : (
-                <div className="h-96 flex flex-col items-center justify-center glass rounded-[3rem] text-center p-12">
-                   <ShoppingBag size={64} className="text-gray-700 mb-6" />
-                   <h2 className="text-2xl font-bold text-white mb-4">Your cart is empty</h2>
-                   <Link href="/shop" className="px-8 py-4 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center gap-2 hover:scale-105 transition-transform">
-                     <ArrowLeft size={18} /> START SHOPPING
-                   </Link>
-                </div>
-              )}
-            </AnimatePresence>
+                ))}
+              </AnimatePresence>
+            ) : (
+              <div className="h-96 flex flex-col items-center justify-center glass rounded-[3rem] text-center p-12">
+                 <ShoppingBag size={64} className="text-gray-700 mb-6" />
+                 <h2 className="text-2xl font-bold text-white mb-4">Your cart is empty</h2>
+                 <Link href="/shop" className="px-8 py-4 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center gap-2 hover:scale-105 transition-transform">
+                   <ArrowLeft size={18} /> START SHOPPING
+                 </Link>
+              </div>
+            )}
           </div>
 
           {/* Summary */}
@@ -116,13 +135,22 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <Link href="/checkout" className="w-full h-16 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] transition-all">
-                  CHECKOUT NOW
-                  <ArrowRight size={20} />
-                </Link>
+                <button
+                  onClick={startCheckout}
+                  disabled={loading}
+                  className="w-full h-16 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {loading ? <Loader2 className="animate-spin" size={20} /> : <ShoppingBag size={20} />}
+                  {loading ? 'REDIRECTING TO STRIPE...' : 'CHECKOUT NOW'}
+                  {!loading && <ArrowRight size={20} />}
+                </button>
+
+                {error && (
+                  <p className="text-center text-xs text-[#ff00ea] mt-4 font-bold">{error}</p>
+                )}
 
                 <p className="text-center text-[10px] text-gray-500 mt-6 uppercase tracking-widest font-bold">
-                  SECURE CHECKOUT POWERED BY NEBULA
+                  SECURE CHECKOUT POWERED BY STRIPE
                 </p>
               </div>
             </div>

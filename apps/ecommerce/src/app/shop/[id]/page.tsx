@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { 
+import {
   ShoppingCart, 
   Heart, 
   Star, 
@@ -12,18 +12,28 @@ import {
   Truck, 
   RotateCcw,
   Plus,
-  Minus
+  Minus,
+  Check
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { products } from '@/data/mockData';
+import { useCart } from '@/hooks/useCart';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const router = useRouter();
   const product = products.find(p => p.id === id) || products[0];
+  const { add } = useCart();
   
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
+
+  function handleAddToCart() {
+    add(product.id, quantity);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  }
 
   return (
     <main className="min-h-screen pt-24 pb-20">
@@ -109,9 +119,12 @@ export default function ProductDetails() {
                 </button>
               </div>
 
-              <button className="flex-1 h-14 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(0,242,255,0.3)] transition-all">
-                <ShoppingCart size={20} />
-                ADD TO CART
+              <button
+                onClick={handleAddToCart}
+                className="flex-1 h-14 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(0,242,255,0.3)] transition-all"
+              >
+                {added ? <Check size={20} /> : <ShoppingCart size={20} />}
+                {added ? 'ADDED TO CART' : 'ADD TO CART'}
               </button>
               
               <button className="w-14 h-14 glass rounded-2xl flex items-center justify-center hover:text-[#ff00ea] transition-colors border-white/10">

@@ -27,6 +27,7 @@ const serverEnvSchema = z.object({
   STORAGE_REGION: z.string().default("auto"),
 
   AI_API_KEY: z.string().optional(),
+  AI_MODEL: z.string().default("gemini-3.6-flash"),
 
   EMAIL_API_KEY: z.string().optional(),
   EMAIL_FROM: z.string().default("IDEONS Marketplace <no-reply@ideons.com>"),

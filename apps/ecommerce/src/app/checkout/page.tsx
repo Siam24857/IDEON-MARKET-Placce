@@ -2,17 +2,47 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CreditCard, Truck, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
+import { CreditCard, Truck, CheckCircle2, ArrowRight, ArrowLeft, Loader2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import { useCart } from '@/hooks/useCart';
 
 export default function CheckoutPage() {
   const [step, setStep] = useState(1);
+  const { items } = useCart();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const steps = [
     { id: 1, name: 'Shipping', icon: Truck },
     { id: 2, name: 'Payment', icon: CreditCard },
     { id: 3, name: 'Confirm', icon: CheckCircle2 },
   ];
+
+  async function startCheckout() {
+    if (items.length === 0) {
+      window.location.href = '/cart';
+      return;
+    }
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+      const data = await res.json();
+      if (data.success && data.url) {
+        window.location.href = data.url;
+      } else {
+        setError(data.message ?? 'Could not start checkout.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const variants = {
     initial: { opacity: 0, x: 20 },
@@ -68,18 +98,21 @@ export default function CheckoutPage() {
               <motion.div key="step2" {...variants} className="space-y-8">
                 <h2 className="text-3xl font-black text-white uppercase">Payment Method</h2>
                 <div className="grid grid-cols-1 gap-4">
-                  {['Credit Card', 'PayPal', 'Stripe'].map((method) => (
-                    <div key={method} className="flex items-center justify-between p-6 glass rounded-2xl border-white/5 hover:border-[#00f2ff]/30 cursor-pointer group transition-all">
+                  {['Stripe — Credit / Debit Card'].map((method) => (
+                    <div key={method} className="flex items-center justify-between p-6 glass rounded-2xl border-white/5 border-[#00f2ff]/30 cursor-pointer group transition-all">
                       <div className="flex items-center gap-4">
-                        <div className="w-4 h-4 rounded-full border-2 border-gray-700 group-hover:border-[#00f2ff] flex items-center justify-center">
-                           <div className="w-2 h-2 bg-[#00f2ff] rounded-full scale-0 group-hover:scale-100 transition-transform" />
+                        <div className="w-4 h-4 rounded-full border-2 border-[#00f2ff] flex items-center justify-center">
+                           <div className="w-2 h-2 bg-[#00f2ff] rounded-full scale-100 transition-transform" />
                         </div>
                         <span className="text-white font-bold">{method}</span>
                       </div>
-                      <CreditCard className="text-gray-700 group-hover:text-[#00f2ff]" />
+                      <CreditCard className="text-[#00f2ff]" />
                     </div>
                   ))}
                 </div>
+                <p className="text-xs text-gray-500 uppercase tracking-widest font-bold">
+                  SECURE CHECKOUT POWERED BY STRIPE
+                </p>
               </motion.div>
             )}
 
@@ -88,16 +121,10 @@ export default function CheckoutPage() {
                 <div className="w-24 h-24 bg-[#00f2ff]/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-[#00f2ff]/20">
                   <CheckCircle2 size={48} className="text-[#00f2ff]" />
                 </div>
-                <h2 className="text-4xl font-black text-white uppercase">Order Confirmed!</h2>
+                <h2 className="text-4xl font-black text-white uppercase">Payment Confirmed</h2>
                 <p className="text-gray-500 max-w-sm mx-auto">
-                  Your futuristic tech is being prepared for hyper-speed delivery. You'll receive a confirmation email shortly.
+                  Stripe has confirmed your payment. You will receive a confirmation email shortly.
                 </p>
-                <button 
-                  onClick={() => window.location.href = '/dashboard'}
-                  className="px-10 py-4 bg-[#00f2ff] text-black font-black rounded-2xl hover:scale-105 transition-transform"
-                >
-                  TRACK ORDER
-                </button>
               </motion.div>
             )}
           </AnimatePresence>
@@ -111,13 +138,32 @@ export default function CheckoutPage() {
                 <ArrowLeft size={18} /> BACK
               </button>
               <button 
-                onClick={() => setStep(step + 1)}
-                className="px-10 py-4 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(0,242,255,0.3)] transition-all"
+                onClick={() => {
+                  if (step === 2) {
+                    startCheckout();
+                  } else {
+                    setStep(step + 1);
+                  }
+                }}
+                disabled={loading}
+                className="px-10 py-4 bg-[#00f2ff] text-black font-black rounded-2xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(0,242,255,0.3)] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {step === 2 ? 'COMPLETE PURCHASE' : 'CONTINUE'}
-                <ArrowRight size={18} />
+                {loading ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    REDIRECTING TO STRIPE...
+                  </>
+                ) : (
+                  <>
+                    {step === 2 ? 'PAY WITH STRIPE' : 'CONTINUE'}
+                    <ArrowRight size={18} />
+                  </>
+                )}
               </button>
             </div>
+          )}
+        {error && (
+            <p className="text-center text-xs text-[#ff00ea] mt-6 font-bold">{error}</p>
           )}
         </div>
       </div>

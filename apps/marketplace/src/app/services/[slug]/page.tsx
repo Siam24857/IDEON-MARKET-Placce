@@ -243,6 +243,7 @@ export default async function ServiceDetailPage({
                 deliveryTime: p.deliveryTime,
                 revisions: p.revisions,
                 features: p.features,
+                serviceId: service.id,
               }))}
             />
 

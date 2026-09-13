@@ -12,7 +12,7 @@ import {
 import { requireUser } from "@ideons/auth";
 import { prisma } from "@ideons/database";
 import { Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from "@ideons/ui";
-import { MARKETPLACE_URL } from "@/lib/env-public";
+import { ECOMMERCE_URL, MARKETPLACE_URL } from "@/lib/env-public";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +40,7 @@ export default async function DashboardPage() {
 
   const modules = [
     { name: "Marketplace", desc: `${services} services live`, icon: Store, href: `${MARKETPLACE_URL}/marketplace` },
-    { name: "Store", desc: `${products} products`, icon: Boxes, href: `${MARKETPLACE_URL}/marketplace` },
+    { name: "Store", desc: `${products} products`, icon: Boxes, href: ECOMMERCE_URL },
     { name: "Job Hunter", desc: `${jobs} open jobs`, icon: Briefcase, href: "#" },
     { name: "E-Books", desc: `${books} books`, icon: BookOpen, href: "#" },
     { name: "Resources", desc: `${resources} resources`, icon: Layers, href: "#" },

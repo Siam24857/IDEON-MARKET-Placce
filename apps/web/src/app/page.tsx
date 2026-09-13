@@ -10,7 +10,7 @@ import {
   Store,
 } from "lucide-react";
 import { Button, Card, CardDescription, CardHeader, CardTitle } from "@ideons/ui";
-import { MARKETPLACE_URL } from "@/lib/env-public";
+import { ECOMMERCE_URL, MARKETPLACE_URL } from "@/lib/env-public";
 
 const modules = [
   {
@@ -23,8 +23,7 @@ const modules = [
     name: "E-commerce",
     description: "Physical and digital products from one store.",
     icon: Boxes,
-    href: `${MARKETPLACE_URL}/marketplace`,
-    soon: true,
+    href: ECOMMERCE_URL,
   },
   {
     name: "Job Hunter",

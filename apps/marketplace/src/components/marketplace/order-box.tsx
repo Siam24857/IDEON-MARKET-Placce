@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Check, Clock, RefreshCcw } from "lucide-react";
+import { Check, Clock, RefreshCcw, ShoppingCart } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn, formatDeliveryTime, formatMoney } from "@/lib/utils";
+import { useSession } from "@/lib/auth-client";
 
 export interface OrderPackage {
   id: string;
@@ -17,11 +18,37 @@ export interface OrderPackage {
   deliveryTime: number;
   revisions: number;
   features: string[];
+  serviceId: string;
 }
 
 export function OrderBox({ packages }: { packages: OrderPackage[] }) {
+  const { data: session } = useSession();
   const [selected, setSelected] = useState(0);
+  const [status, setStatus] = useState<"idle" | "adding" | "added">("idle");
+
   const pkg = packages[Math.min(selected, Math.max(0, packages.length - 1))];
+
+  async function addToCart() {
+    if (!pkg || status === "adding") return;
+    setStatus("adding");
+    try {
+      const res = await fetch("/api/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ serviceId: pkg.serviceId, packageId: pkg.id }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("added");
+      } else {
+        alert(data.message ?? "Could not add to cart");
+        setStatus("idle");
+      }
+    } catch {
+      alert("Something went wrong");
+      setStatus("idle");
+    }
+  }
 
   return (
     <div className="rounded-2xl border bg-card p-5 shadow-sm">
@@ -32,7 +59,7 @@ export function OrderBox({ packages }: { packages: OrderPackage[] }) {
           <button
             key={p.id}
             type="button"
-            onClick={() => setSelected(i)}
+            onClick={() => { setSelected(i); setStatus("idle"); }}
             className={cn(
               "flex items-center justify-between rounded-xl border px-4 py-3 text-left transition-all",
               i === selected
@@ -82,12 +109,36 @@ export function OrderBox({ packages }: { packages: OrderPackage[] }) {
             <Badge variant="secondary">{pkg.name}</Badge>
           </div>
 
-          <Button asChild size="lg" className="mt-4 w-full">
-            <Link href="/login">Continue — sign in to order</Link>
-          </Button>
-          <p className="mt-2 text-center text-xs text-muted-foreground">
-            Checkout with Stripe is coming in a later phase.
-          </p>
+          {session?.user ? (
+            status === "added" ? (
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center gap-2 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-600">
+                  <Check className="h-4 w-4" />
+                  Added to cart
+                </div>
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <Link href="/cart">
+                    <ShoppingCart />
+                    View cart
+                  </Link>
+                </Button>
+              </div>
+            ) : (
+              <Button
+                size="lg"
+                className="mt-4 w-full"
+                onClick={addToCart}
+                disabled={status === "adding"}
+              >
+                <ShoppingCart />
+                {status === "adding" ? "Adding…" : "Add to cart"}
+              </Button>
+            )
+          ) : (
+            <Button asChild size="lg" className="mt-4 w-full">
+              <Link href="/login">Sign in to order</Link>
+            </Button>
+          )}
         </div>
       ) : null}
     </div>

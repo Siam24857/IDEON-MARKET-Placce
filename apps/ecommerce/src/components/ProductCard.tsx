@@ -2,15 +2,18 @@
 
 import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { ShoppingCart, Heart, Star } from 'lucide-react';
+import { ShoppingCart, Heart, Star, Check } from 'lucide-react';
 import { Product } from '@/data/mockData';
-import Image from 'next/image';
+import { useCart } from '@/hooks/useCart';
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const { add } = useCart();
+  const [added, setAdded] = React.useState(false);
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -19,6 +22,12 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+
+  function handleAddToCart() {
+    add(product.id, 1);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -77,8 +86,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         
         {/* Overlay Actions */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-          <button className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[#00f2ff] hover:text-black transition-all">
-            <ShoppingCart size={20} />
+          <button
+            onClick={handleAddToCart}
+            className={`w-12 h-12 glass rounded-full flex items-center justify-center transition-all ${added ? 'bg-[#00f2ff] text-black' : 'hover:bg-[#00f2ff] hover:text-black'}`}
+          >
+            {added ? <Check size={20} /> : <ShoppingCart size={20} />}
           </button>
           <button className="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-[#ff00ea] text-white transition-all">
             <Heart size={20} />
